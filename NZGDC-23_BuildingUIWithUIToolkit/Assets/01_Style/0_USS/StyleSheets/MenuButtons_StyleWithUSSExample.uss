@@ -32,6 +32,11 @@
     scale: 1.25 1.25;
     rotate: 340deg;
     color: rgb(218, 218, 219);
+    background-color: rgb(44, 39, 51);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
 }
 
 .menu-buttons-container .selected-menu-button {

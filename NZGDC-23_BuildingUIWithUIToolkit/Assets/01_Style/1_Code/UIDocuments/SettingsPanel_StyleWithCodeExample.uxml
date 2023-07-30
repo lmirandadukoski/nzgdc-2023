@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/01_Style/0_USS/StyleSheets/SettingsPanel_StyleWithUSSExample.uss?fileID=7433441132597879392&amp;guid=59d97752d139ed74f80371ee69f76bb8&amp;type=3#SettingsPanel_StyleWithUSSExample" />
+    <Style src="project://database/Assets/01_Style/0_USS/StyleSheets/Content_StyleWithUSSExample.uss?fileID=7433441132597879392&amp;guid=bb0deb7b0a273414a81b843eb6dae04a&amp;type=3#Content_StyleWithUSSExample" />
+    <Style src="project://database/Assets/01_Style/0_USS/StyleSheets/CreditEntry_StyleWithUSSExample.uss?fileID=7433441132597879392&amp;guid=d3fb0d184fe7cd242850ac093a7cb1ca&amp;type=3#CreditEntry_StyleWithUSSExample" />
+    <ui:VisualElement name="overlay">
+        <ui:VisualElement name="MenuBackground" picking-mode="Ignore" class="tab-menu-container">
+            <ui:VisualElement name="MenuButtons" class="menu-buttons-container">
+                <ui:Label text="Settings" display-tooltip-when-elided="true" name="SettingsLabel" style="padding-left: 0; padding-right: 0; padding-bottom: 32px; -unity-font-style: bold; -unity-text-align: middle-center; font-size: 24px;" />
+                <ui:Button text="Volume" display-tooltip-when-elided="true" name="VolumeButton" />
+                <ui:Button text="Controls" display-tooltip-when-elided="true" name="ControlsButton" />
+                <ui:Button text="Credit" display-tooltip-when-elided="true" name="CreditButton" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Content" class="content-container" style="position: relative;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

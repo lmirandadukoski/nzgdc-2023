@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class SettingsPanelController : MonoBehaviour
+public abstract class SettingsPanelControllerBase : MonoBehaviour
 {
-    [SerializeField] private UIDocument m_SettingsPanelDocument;
+    [SerializeField] protected UIDocument m_SettingsPanelDocument;
     [Tooltip("The order of the documents in the collection must match the buttons that they correspond to.")]
-    [SerializeField] private VisualTreeAsset[] m_SettingsSubpanelDocuments;
+    [SerializeField] protected VisualTreeAsset[] m_SettingsSubpanelDocuments;
 
-    private List<Button> m_MenuButtons;
-    private Button m_HoveredButton, m_ActiveButton;
-    private VisualElement m_SubPanelContainer;
+    protected List<Button> m_MenuButtons;
+    protected Button m_HoveredButton, m_ActiveButton;
+    protected VisualElement m_SubPanelContainer;
 
     private void Start()
     {
@@ -23,10 +23,11 @@ public class SettingsPanelController : MonoBehaviour
 
         //Grab the menu buttons container from the root Settings Panel VisualElement by using the menu-buttons-container Selector.
         VisualElement buttonContainer = m_SettingsPanelDocument.rootVisualElement.Query<VisualElement>(className: "menu-buttons-container");
-        if(buttonContainer == null)
+        if (buttonContainer == null)
         {
             return;
         }
+        ApplyButtonContainerStyle(buttonContainer);
 
         //Grab the subpanel container from the root Settings Panel VisualElement by using the content-container Selector.
         m_SubPanelContainer = m_SettingsPanelDocument.rootVisualElement.Query<VisualElement>(className: "content-container");
@@ -34,28 +35,29 @@ public class SettingsPanelController : MonoBehaviour
 
         //Grab all the Button elements from the menu button container.
         UQueryBuilder<Button> buttons = buttonContainer.Query<Button>();
-        if(buttons == null)
+        if (buttons == null)
         {
             return;
         }
 
         //Cast the UQueryBuilder to a List so that we can index match buttons to subpanels.
         m_MenuButtons = buttons.ToList();
-        SubscribeToButtonCallbacks();
+        ApplyDefaultButtonStyle(m_MenuButtons);
+        SubscribeToButtonCallbacks(m_MenuButtons);
         //Activate the first button and subpanel.
         SetActiveButton(null, m_MenuButtons[0]);
     }
 
-    private void SubscribeToButtonCallbacks()
+    protected void SubscribeToButtonCallbacks(List<Button> menuButtons)
     {
-        if(m_MenuButtons == null)
+        if (menuButtons == null)
         {
             return;
         }
 
         //Subscribe to the PointerEnter and PointerOut events to do hover visualisation, and subscribe to PointerDownEvent
         //to do active-button visualisation and swap subpanels.
-        foreach (var button in m_MenuButtons)
+        foreach (var button in menuButtons)
         {
             button.RegisterCallback<PointerEnterEvent>(evt => SetHoveredButton(evt, button), TrickleDown.TrickleDown);
             button.RegisterCallback<PointerOutEvent>(evt => SetUnhoveredButton(evt, button), TrickleDown.TrickleDown);
@@ -63,63 +65,21 @@ public class SettingsPanelController : MonoBehaviour
         }
     }
 
-    private void SetHoveredButton(PointerEnterEvent evt, Button button)
+    protected virtual void ApplyButtonContainerStyle(VisualElement buttonContainer)
     {
-        Debug.Log($"Hovered over button {button.name}");
-        if(m_HoveredButton == button)
-        {
-            return;
-        }
 
-        //Add the new hovered button to the hovered-button class list to set the visuals.
-        m_HoveredButton = button;
-        if(m_HoveredButton != null)
-        {
-            m_HoveredButton.AddToClassList("hovered-menu-button");
-        }
     }
 
-    private void SetUnhoveredButton(PointerOutEvent evt, Button button)
-    {        
-        if (m_HoveredButton != button)
-        {
-            return;
-        }
-
-        //If hovering over another button, remove the previously-hovered buttons from the hovered-button
-        //class list to reset the visuals.
-        if (m_HoveredButton != null)
-        {
-            Debug.Log($"Unhovered over button {button.name}");
-            m_HoveredButton.RemoveFromClassList("hovered-menu-button");
-        }
-
-        m_HoveredButton = null;
-    }
-
-    private void SetActiveButton(PointerDownEvent evt, Button button)
+    protected virtual void ApplyDefaultButtonStyle(List<Button> menuButtons)
     {
-        //If clicking on another button, remove the previously-clicked buttons from the selected-button
-        //class list to reset the visuals.
-        Debug.Log($"Clicked button {button.name}");
-        if (m_ActiveButton != null)
-        {
-            m_ActiveButton.RemoveFromClassList("selected-menu-button");
-        }
 
-        //Add the new selected button to the selected-button class list to set the visuals.
-        m_ActiveButton = button;
-        if(m_ActiveButton != null)
-        {
-            button.AddToClassList("selected-menu-button");
-        }
-
-        SetActiveSubpanel();
     }
 
+    protected abstract void SetHoveredButton(PointerEnterEvent evt, Button button);
+    protected abstract void SetUnhoveredButton(PointerOutEvent evt, Button button);
+    protected abstract void SetActiveButton(PointerDownEvent evt, Button button);
 
-
-    private void SetActiveSubpanel()
+    protected void SetActiveSubpanel()
     {
         //Get the index of the new active button.
         int buttonIndex = GetButtonIndex(m_ActiveButton);
@@ -136,7 +96,7 @@ public class SettingsPanelController : MonoBehaviour
         subPanel.StretchToParentSize();
     }
 
-    private int GetButtonIndex(Button button)
+    protected int GetButtonIndex(Button button)
     {
         return m_MenuButtons.IndexOf(button);
     }
