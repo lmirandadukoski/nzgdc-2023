@@ -1,7 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/02_Behaviour/StyleSheets/CharacterSelectionRoot.uss?fileID=7433441132597879392&amp;guid=a2adee240aebf144bbf4e29532f3ba0c&amp;type=3#CharacterSelectionRoot" />
-    <Style src="project://database/Assets/02_Behaviour/StyleSheets/CharacterSlot.uss?fileID=7433441132597879392&amp;guid=38a290d4ea30a344f8550489ff801922&amp;type=3#CharacterSlot" />
-    <Style src="project://database/Assets/02_Behaviour/StyleSheets/CharacterData.uss?fileID=7433441132597879392&amp;guid=d7b2ad96c4b19b340a42d7227f8bb3cd&amp;type=3#CharacterData" />
     <ui:VisualElement name="Root" style="flex-grow: 1; flex-direction: row;">
         <ui:VisualElement name="CharactersContainer" class="character-selection__content-container">
             <ui:Label text="Select A Character" display-tooltip-when-elided="true" name="Title" style="padding-bottom: 32px;" />
