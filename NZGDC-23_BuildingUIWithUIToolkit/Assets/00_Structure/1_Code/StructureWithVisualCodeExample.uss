@@ -1,0 +1,42 @@
+#title {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(68, 138, 255);
+}
+
+#label-1 {
+    font-size: 12px;
+    -unity-font-style: bold-and-italic;
+    color: darkorange;
+}
+
+#label-2 {
+    font-size: 16px;
+    -unity-font-style: italic;
+    color: floralwhite;
+}
+
+.horizontal-button-group {
+    flex-direction: row;
+}
+
+.horizontal-button-group Button {
+    -unity-font-style: bold;
+    background-color: darkviolet;
+}
+
+.vertical-radiobutton-group {
+}
+
+.vertical-radiobutton-group RadioButton Label {
+    font-size: 14px;
+}
+
+.vertical-radiobutton-group RadioButton:hover {
+    font-size: 16px;
+    -unity-font-style: bold;
+}
+
+.vertical-radiobutton-group RadioButton Label:hover {
+    color: lawngreen;
+}

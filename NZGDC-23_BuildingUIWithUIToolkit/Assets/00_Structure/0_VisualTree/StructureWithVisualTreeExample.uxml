@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="label-sample-container">
+        <ui:Label text="A bunch of labels" name="title" />
+        <ui:Label text="Hello world" name="label-0" />
+        <ui:Label text="Hello world" name="label-1" />
+        <ui:Label text="Hello world" name="label-2" />
+    </ui:VisualElement>
+    <ui:VisualElement name="nested-elements-container" style="flex-grow: 1; padding-top: 16px; padding-bottom: 16px;">
+        <ui:Label text="Nested VisualElements" display-tooltip-when-elided="true" name="title" style="padding-bottom: 16px;" />
+        <ui:VisualElement name="horizontal-button-group" style="flex-direction: row; padding-bottom: 16px;">
+            <ui:Button text="Button 1" display-tooltip-when-elided="true" />
+            <ui:Button text="Button 2" display-tooltip-when-elided="true" />
+            <ui:Button text="Button 3" display-tooltip-when-elided="true" />
+        </ui:VisualElement>
+        <ui:VisualElement name="vertical-radio-button-group">
+            <ui:RadioButton label="Radio Button 1" />
+            <ui:RadioButton label="Radio Button 2" />
+            <ui:RadioButton label="Radio Button 3" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

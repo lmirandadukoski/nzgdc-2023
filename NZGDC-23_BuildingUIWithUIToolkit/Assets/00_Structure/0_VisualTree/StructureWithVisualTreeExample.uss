@@ -1,0 +1,35 @@
+#title {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(68, 138, 255);
+}
+
+#label-1 {
+    font-size: 12px;
+    -unity-font-style: bold-and-italic;
+    color: darkorange;
+}
+
+#label-2 {
+    font-size: 16px;
+    -unity-font-style: italic;
+    color: floralwhite;
+}
+
+Button {
+    -unity-font-style: bold;
+    background-color: darkviolet;
+}
+
+RadioButton Label {
+    font-size: 14px;
+}
+
+RadioButton:hover {
+    font-size: 16px;
+    -unity-font-style: bold;
+}
+
+RadioButton Label:hover {
+    color: lawngreen;
+}
