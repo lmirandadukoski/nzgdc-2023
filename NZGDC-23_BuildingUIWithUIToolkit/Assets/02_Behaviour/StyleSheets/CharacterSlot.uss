@@ -1,0 +1,66 @@
+CharacterSlotVisualElement {
+    flex-grow: 1;
+    margin-bottom: 32px;
+    flex-direction: row;
+    height: 80px;
+    max-height: 80px;
+    min-height: 80px;
+}
+
+.character-slot__content-container {
+    flex-grow: 1;
+    border-left-color: rgba(210, 210, 210, 255);
+    border-right-color: rgba(210, 210, 210, 255);
+    border-top-color: rgba(210, 210, 210, 255);
+    border-bottom-color: rgba(210, 210, 210, 255);
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 1;
+}
+
+.character-slot__content-container__default-background {
+    background-color: rgb(50, 61, 108);
+}
+
+.character-slot__content-container__hovered-background {
+    background-color: rgb(53, 77, 168);
+}
+
+.character-slot__content-container .character-image {
+    border-left-color: rgba(210, 210, 210, 255);
+    border-right-color: rgba(210, 210, 210, 255);
+    border-top-color: rgba(210, 210, 210, 255);
+    border-bottom-color: rgba(210, 210, 210, 255);
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 68px;
+    max-height: 68px;
+    min-height: 68px;
+    width: 68px;
+    max-width: 68px;
+    min-width: 68px;
+    background-color: rgba(28, 59, 128, 255);
+    margin-right: 32px;
+    margin-left: 16px;
+}
+
+CharacterSlotVisualElement .character-slot__content-container Label {
+    -unity-font-style: bold;
+    font-size: 16px;
+    color: rgba(210, 210, 210, 255);
+    -unity-text-align: middle-left;
+}

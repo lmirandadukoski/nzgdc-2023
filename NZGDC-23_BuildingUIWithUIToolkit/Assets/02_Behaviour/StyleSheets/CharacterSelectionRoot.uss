@@ -1,0 +1,41 @@
+.character-selection__content-container {
+    flex-grow: 1;
+    background-color: rgb(25, 23, 101);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    align-items: center;
+    min-height: 80%;
+    max-height: 80%;
+    height: 80%;
+    max-width: 40%;
+    min-width: 40%;
+    width: 40%;
+    left: 8%;
+    top: 10%;
+    margin-bottom: 10%;
+}
+
+.character-selection__content-container Label#Title {
+    font-size: 32px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    top: 24px;
+    -unity-text-outline-color: rgba(210, 210, 210, 255);
+    color: rgba(210, 210, 210, 255);
+    flex-grow: 0;
+    margin-bottom: 32px;
+}
+
+.character-selection__content-container ListView {
+    flex-grow: 1;
+    padding-bottom: 0;
+    width: 90%;
+    max-width: 90%;
+    min-width: 90%;
+    align-items: stretch;
+}
+
+.character-data__content-container {
+}

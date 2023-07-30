@@ -1,0 +1,16 @@
+CharacterDataVisualElement {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+CharacterDataVisualElement Label {
+    flex-grow: 1;
+    -unity-font-style: bold;
+    font-size: 32px;
+    color: rgb(210, 210, 210);
+    -unity-text-align: middle-center;
+    height: 40px;
+    max-height: 40px;
+    min-height: 40px;
+    padding-top: 64px;
+}
