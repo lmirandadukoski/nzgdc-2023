@@ -1,0 +1,28 @@
+#overlay {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.49);
+}
+
+Label {
+    color: rgb(218, 218, 219);
+}
+
+Slider {
+    max-height: 40px;
+    min-height: 40px;
+    flex-grow: 1;
+}
+
+.tab-menu-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: rgb(19, 27, 82);
+    flex-grow: 1;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    flex-direction: row;
+}

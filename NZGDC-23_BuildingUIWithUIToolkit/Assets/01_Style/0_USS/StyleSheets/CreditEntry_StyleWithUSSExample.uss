@@ -1,0 +1,15 @@
+.credit-entry {
+    padding-bottom: 16px;
+}
+
+#name {
+    font-size: 16px;
+    -unity-font-style: bold;
+    padding-bottom: 4px;
+    -unity-text-align: middle-center;
+}
+
+#role {
+    -unity-font-style: italic;
+    -unity-text-align: middle-center;
+}

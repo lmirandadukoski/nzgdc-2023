@@ -1,0 +1,42 @@
+.menu-buttons-container {
+    flex-grow: 1;
+    max-width: 30%;
+    min-width: 30%;
+    padding-right: 32px;
+    align-items: stretch;
+    justify-content: center;
+    padding-left: 32px;
+}
+
+.menu-buttons-container Button {
+    margin-bottom: 16px;
+    max-height: 60px;
+    min-height: 40px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(44, 39, 51);
+    color: rgb(218, 218, 219);
+}
+
+.menu-buttons-container .hovered-menu-button {
+    scale: 1.25 1.25;
+    rotate: 340deg;
+    color: rgb(218, 218, 219);
+}
+
+.menu-buttons-container .selected-menu-button {
+    scale: 1 1;
+    rotate: 0;
+    background-color: rgb(78, 48, 135);
+    color: rgb(218, 218, 219);
+}

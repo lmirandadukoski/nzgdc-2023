@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/01_Style/0_USS/StyleWithUSSExample.uss?fileID=7433441132597879392&amp;guid=59d97752d139ed74f80371ee69f76bb8&amp;type=3#StyleWithUSSExample" />
+    <ui:VisualElement name="Root" class="content-panel-root" style="-unity-background-scale-mode: stretch-to-fill; justify-content: center; align-items: center;">
+        <ui:VisualElement name="Controls" style="background-image: url(&apos;project://database/Assets/01_Style/0_USS/controls.jpg?fileID=2800000&amp;guid=aec43d6abded42e45a895bd0fb841db9&amp;type=3#controls&apos;); width: 100%; height: 100%; flex-grow: 1; -unity-background-scale-mode: scale-to-fit;" />
+        <ui:Label text="https://www.magicgameworld.com/pc-controls-for-chivalry-2/" display-tooltip-when-elided="true" name="SourceURL" style="flex-grow: 1; -unity-text-align: middle-center; font-size: 10px; padding-bottom: 32px;" />
+    </ui:VisualElement>
+</ui:UXML>
