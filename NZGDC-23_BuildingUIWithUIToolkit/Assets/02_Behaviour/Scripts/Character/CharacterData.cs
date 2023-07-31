@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "NZGDC23Demo/Character Data", fileName = "[NAME]_CharacterData")]
 public class CharacterData : ScriptableObject
 {
+    //Some basic character properties
     public Sprite CharacterIcon { get => m_CharacterIcon; }
     public GameObject CharacterPrefab { get => m_Prefab; }
     public string CharacterName { get => m_CharacterName; }

@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class CharacterSlotVisualElement : VisualElement
 {
+    //This is what makes this VisualElement accessible in UIBuilder.
     public new class UxmlFactory : UxmlFactory<CharacterSlotVisualElement> { }
 
     public CharacterData Data { get => m_Data; }
@@ -21,6 +22,7 @@ public class CharacterSlotVisualElement : VisualElement
 
     public CharacterSlotVisualElement()
     {
+        //Construct and initialise the various child elements of character slot.
         m_ContentContainer = new VisualElement();
         m_ContentContainer.AddToClassList("character-slot__content-container");
         m_ContentContainer.AddToClassList("character-slot__content-container__default-background");
@@ -33,6 +35,9 @@ public class CharacterSlotVisualElement : VisualElement
         m_CharacterName = new Label("[CHARACTER NAME]");
         m_ContentContainer.Add(m_CharacterName);
 
+        //Subscribe to pointer events in order to manipulate the visuals of the character slot.
+        //Note, that an instance of PointerManipulator could've been created to handle event
+        //registration / deregistration and callbacks.
         RegisterCallback<PointerEnterEvent>(ApplyHoverStyle);
         RegisterCallback<PointerOutEvent>(RemoveHoverStyle);
         RegisterCallback<PointerDownEvent>(SelectCharacter);
@@ -40,6 +45,7 @@ public class CharacterSlotVisualElement : VisualElement
 
     public void Initialise(CharacterSelection characterSelection, CharacterData data)
     {
+        //Repaint the various child elements with data from CharacterData.
         m_CharacterSelection = characterSelection;
         m_Data = data;
 
@@ -49,6 +55,8 @@ public class CharacterSlotVisualElement : VisualElement
 
     public void Select()
     {
+        //Apply the "selected" visuals. Note that the element is made unpickable so that the visuals
+        //stay in the selected state until another character slot is selected.
         pickingMode = PickingMode.Ignore;
         m_ContentContainer.AddToClassList("character-slot__content-container__hovered-background");        
 
@@ -57,6 +65,7 @@ public class CharacterSlotVisualElement : VisualElement
 
     public void Deselect()
     {
+        //Apply the "default" visuals. Make the element pickable.
         pickingMode = PickingMode.Position;
         m_ContentContainer.RemoveFromClassList("character-slot__content-container__hovered-background");
         m_ContentContainer.AddToClassList("character-slot__content-container__default-background");
@@ -69,6 +78,7 @@ public class CharacterSlotVisualElement : VisualElement
             return;
         }
 
+        //Apply the "hover" visuals.
         m_ContentContainer.RemoveFromClassList("character-slot__content-container__default-background");
         m_ContentContainer.AddToClassList("character-slot__content-container__hovered-background");
     }
@@ -80,12 +90,14 @@ public class CharacterSlotVisualElement : VisualElement
             return;
         }
 
+        //Remove the "hover" visuals.
         m_ContentContainer.RemoveFromClassList("character-slot__content-container__hovered-background");
         m_ContentContainer.AddToClassList("character-slot__content-container__default-background");
     }
 
     private void SelectCharacter(PointerDownEvent evt)
     {
+        //Send the CharacterSelected event.
         CharacterSelected?.Invoke(this);
     }
 }

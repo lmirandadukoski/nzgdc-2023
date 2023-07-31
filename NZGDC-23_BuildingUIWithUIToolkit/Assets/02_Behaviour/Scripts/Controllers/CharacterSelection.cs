@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The class that controls the "gameplay" logic of character selection
 public class CharacterSelection : MonoBehaviour
 {
     public CharacterData[] SelectableCharacters { get => m_SelectableCharacters; }

@@ -6,12 +6,15 @@ using UnityEngine.UIElements;
 
 public class CodeStyledSettingsPanelController : SettingsPanelControllerBase
 {
-
+    //The colour palette used in this example
+    //For reasons, colour-channel values need to be normalised (i.e., value / 255).
     private static StyleColor s_BorderColour = new StyleColor(new Color(1.0f, 1.0f, 1.0f));
     private static StyleColor s_Colour = new StyleColor(new Color(0.85f, 0.85f, 0.86f));
     private static StyleColor s_DefaultBackgroundColour = new StyleColor(new Color(0.17f, 0.15f, 0.2f));
     private static StyleColor s_ActiveBackgroundColour = new StyleColor(new Color(0.31f, 0.19f, 0.53f));
 
+    //An element's style can be modified in C# code by setting the values of the various properties in
+    //VisualElement.style.
     protected override void ApplyButtonContainerStyle(VisualElement buttonContainer)
     {
         buttonContainer.style.flexGrow = 1;
@@ -39,7 +42,7 @@ public class CodeStyledSettingsPanelController : SettingsPanelControllerBase
             return;
         }
 
-        //Add the new hovered button to the hovered-button class list to set the visuals.
+        //Apply the visuals tp the newly-hovered button.
         m_HoveredButton = button;
         if (m_HoveredButton != null)
         {
@@ -54,8 +57,7 @@ public class CodeStyledSettingsPanelController : SettingsPanelControllerBase
             return;
         }
 
-        //If hovering over another button, remove the previously-hovered buttons from the hovered-button
-        //class list to reset the visuals.
+        //If hovering over another button, reset the visuals.
         if (m_HoveredButton != null)
         {            
             Debug.Log($"Unhovered over button {button.name}");
@@ -70,15 +72,14 @@ public class CodeStyledSettingsPanelController : SettingsPanelControllerBase
 
     protected override void SetActiveButton(PointerDownEvent evt, Button button)
     {
-        //If clicking on another button, remove the previously-clicked buttons from the selected-button
-        //class list to reset the visuals.
+        //If clicking on another button, reset the visuals of the previously-clicked button.
         Debug.Log($"Clicked button {button.name}");
         if (m_ActiveButton != null)
         {
             ApplyDefaultButtonStyle(m_ActiveButton);
         }
 
-        //Add the new selected button to the selected-button class list to set the visuals.
+        //Apply the visuals to the the newly-selected button.
         m_ActiveButton = button;
         if (m_ActiveButton != null)
         {
@@ -88,6 +89,7 @@ public class CodeStyledSettingsPanelController : SettingsPanelControllerBase
         SetActiveSubpanel();
     }
 
+    //Default button visuals
     private void ApplyDefaultButtonStyle(Button button)
     {
         button.pickingMode = PickingMode.Position;
@@ -118,6 +120,7 @@ public class CodeStyledSettingsPanelController : SettingsPanelControllerBase
         button.style.borderRightColor = s_BorderColour;
     }
 
+    //Hovered button visuals
     private void ApplyHoveredButtonStyle(Button button)
     {
         button.style.scale = new StyleScale(new Scale(Vector3.one * 1.25f));
@@ -131,6 +134,7 @@ public class CodeStyledSettingsPanelController : SettingsPanelControllerBase
         button.style.borderRightColor = s_BorderColour;
     }
 
+    //Selected button visuals
     private void ApplyActiveButtonStyle(Button button)
     {
         button.pickingMode = PickingMode.Ignore;
