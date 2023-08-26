@@ -20,10 +20,21 @@ public class ColourApplyingButton : Button
             var ate = ve as ColourApplyingButton;
 
             ate.colourToApply = m_ColourToApply.GetValueFromBag(bag, cc);
+            ate.PreviewColour();
         }
     }
 
     // Must expose your element class to a { get; set; } property that has the same name 
     // as the name you set in your UXML attribute description with the camel case format
     public Color colourToApply { get; set; }
+
+    public ColourApplyingButton()
+    {
+        text = "Apply Colour";
+    }
+
+    public void PreviewColour()
+    {
+        style.backgroundColor = new StyleColor(colourToApply);
+    }
 }
